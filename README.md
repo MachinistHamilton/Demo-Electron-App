@@ -1,26 +1,3 @@
-Electron JS tutorial
-1.	Initialize your project
-Run npm init -y in your project folder to create a package.json.
-npm init -y 
-
-
-
-2.	Install Electron
-Run npm install electron --save-dev to add Electron as a dev dependency.
-npm install electron --save-dev
-
-
-
-
-
-3.	Create main files
-Create a main.js file (main process).
-Create an index.html file (renderer process).
-
-
-
-
-
 # Electron JS Tutorial
 
 ## 1. Initialize your project
