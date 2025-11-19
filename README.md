@@ -172,4 +172,3 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
 ```sh
 npm start
 ```
-// Save file
