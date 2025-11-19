@@ -25,15 +25,14 @@ Create an index.html file (renderer process).
 
 ## 1. Initialize your project
 Run `npm init -y` in your project folder to create a package.json.
-<br />
-`npm init -y`
 
-<br />
+npm init -y
+
 
 ## 2. Install Electron
-Run `npm install electron --save-dev` to add Electron as a dev dependency.<br />
+Run `npm install electron --save-dev` to add Electron as a dev dependency.
 ```sh
-npm install electron --save-dev <br />
+npm install electron --save-dev
 ```
 or
 ```sh
