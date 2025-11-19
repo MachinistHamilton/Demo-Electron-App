@@ -2,6 +2,9 @@
 const { app, BrowserWindow, ipcMain, dialog } = require('electron');
 const fs = require('fs'); // Node.js file system module
 
+
+
+
 // Function to create the main application window
 function createWindow() {
   const win = new BrowserWindow({
@@ -15,8 +18,14 @@ function createWindow() {
   win.loadFile('index.html');
 }
 
+
+
+
 // Initialize the app when ready and create the window when ready
 app.whenReady().then(createWindow);
+
+
+
 
 // IPC handler: Open file dialog and read file
 ipcMain.handle('open-file', async () => {
@@ -29,6 +38,9 @@ ipcMain.handle('open-file', async () => {
   // Read file content and return
   return fs.readFileSync(filePaths[0], 'utf8');
 });
+
+
+
 
 // IPC handler: Save file dialog and write file
 ipcMain.handle('save-file', async (event, content) => {

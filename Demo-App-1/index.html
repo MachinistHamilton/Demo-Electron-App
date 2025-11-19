@@ -3,47 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Electron Notepad ⚡</title>
-  <style>
-    /* Basic styles for dark/light theme */
-    body {
-      font-family: Arial, sans-serif;
-      height: 100vh;
-      width: 100vw;
-      margin: 0;
-      padding: 0;
-      background: #222;
-      color: #eee;
-      transition: background 0.3s, color 0.3s;
-      overflow: hidden;
-    }
-    .light-theme {
-      background: #fff;
-      color: #222;
-    }
-    .toolbar {
-      display: flex;
-      gap: 10px;
-      padding: 10px;
-      background: #333;
-    }
-    .light-theme .toolbar {
-      background: #eee;
-    }
-    textarea {
-      width: 100%;
-      height: calc(100vh - 50px); /* Adjust height for toolbar */
-      resize: none;
-      font-size: 1.1em;
-      background: inherit;
-      color: inherit;
-      border: none;
-      outline: none;
-      padding: 10px;
-      overflow: auto; /* Only show scrollbars when needed */
-    }
-  </style>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  
   <!-- Toolbar with buttons -->
   <div class="toolbar">
     <button id="newBtn">New</button>
@@ -51,41 +14,12 @@
     <button id="saveBtn">Save</button>
     <button id="themeBtn">Toggle Theme</button>
   </div>
+
+
   <!-- Text editor area -->
   <textarea id="editor" placeholder="Start typing..."></textarea>
   
   
-  <script>
-    // Theme toggle logic
-    const themeBtn = document.getElementById('themeBtn');
-    themeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('light-theme');
-    });
-
-    // New button logic: clears the editor for new typing
-    document.getElementById('newBtn').addEventListener('click', () => {
-      document.getElementById('editor').value = '';
-    });
-
-    // Electron APIs
-    const { ipcRenderer } = require('electron');
-
-    // Open file
-    document.getElementById('openBtn').addEventListener('click', async () => {
-      // Ask main process to open file dialog
-      const content = await ipcRenderer.invoke('open-file');
-      if (content !== undefined) {
-        document.getElementById('editor').value = content;
-      }
-    });
-
-    // Save file
-    document.getElementById('saveBtn').addEventListener('click', async () => {
-      const text = document.getElementById('editor').value;
-      await ipcRenderer.invoke('save-file', text);
-    });
-  </script>
-
-  
+  <script src="js/script.js"></script>    
 </body>
 </html>

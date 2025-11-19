@@ -1,0 +1,44 @@
+
+body {
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background: #222;
+    color: #eee;
+    overflow: hidden;
+}
+
+
+.light-theme {
+    background: #fff;
+    color: #222;
+}
+
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background: #333;
+}
+
+
+.light-theme .toolbar {
+    background: #eee;
+}
+
+
+textarea {
+    width: 100%;
+    height: calc(100vh - 50px);
+    resize: none;
+    font-size: 1.1em;
+    background: inherit;
+    color: inherit;
+    border: none;
+    outline: none;
+    padding: 10px;
+    overflow: auto;
+}
