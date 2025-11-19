@@ -4,7 +4,7 @@ themeBtn.addEventListener('click', () => {
     document.body.classList.toggle('light-theme');
 });
 
-// New button logic: clears the editor for new typing
+// Clears the editor for new typing
 document.getElementById('newBtn').addEventListener('click', () => {
     document.getElementById('editor').value = '';
 });
