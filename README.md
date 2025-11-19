@@ -20,9 +20,32 @@ Create an index.html file (renderer process).
 
 
 
-4.	Update package.json
-Add start electron to script in the package.json file
 
+# Electron JS Tutorial
+
+## 1. Initialize your project
+Run `npm init -y` in your project folder to create a package.json.
+```sh
+npm init -y
+```
+
+## 2. Install Electron
+Run `npm install electron --save-dev` to add Electron as a dev dependency.
+```sh
+npm install electron --save-dev
+```
+or
+```sh
+npm i electron -D
+```
+
+## 3. Create main files
+Create a `main.js` file (main process).
+Create an `index.html` file (renderer process).
+
+## 4. Update package.json
+Add start electron to script in the `package.json` file:
+```json
 {
   "main": "main.js",
   "devDependencies": {
@@ -32,19 +55,15 @@ Add start electron to script in the package.json file
     "start": "electron ."
   }
 }
+```
 
-
- 
-
-
-5.	Write the Electron code to launch a window in main.js
-In the main.js file write the following code to launch a window.
+## 5. Write the Electron code to launch a window in main.js
+In the `main.js` file write the following code to launch a window.
 Every Electron App only has 1 main process running to manage the life cycle.
-
+```js
 // Main process to manage application lifecycle and create browser windows
 const { app, BrowserWindow } = require('electron');
 
-// Function to create the main application window
 function createWindow() {
   const win = new BrowserWindow({
     width: 800,
@@ -56,38 +75,30 @@ function createWindow() {
   win.loadFile('index.html');
 }
 
-// Initialize the app when ready and create the window when ready
 app.whenReady().then(createWindow);
+```
 
-
-
-6.	Create Simple index.html code
-
+## 6. Create Simple index.html code
+```html
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="UTF-8">
     <title>Demo Electron App</title>
 </head>
-
 <body>
   <h1>Hello Electron ⚡!</h1>
 </body>
 </html>
+```
 
-
-
-
-
-7.	Start App
+## 7. Start App
+```sh
 npm start
+```
 
-
-
-
-8.	Create HTML Layout
-
+## 8. Create HTML Layout
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -96,41 +107,22 @@ npm start
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  
-  <!-- Toolbar with buttons -->
   <div class="toolbar">
     <button id="newBtn">New</button>
     <button id="openBtn">Open</button>
     <button id="saveBtn">Save</button>
     <button id="themeBtn">Toggle Theme</button>
   </div>
-
-  <!-- Text editor area -->
   <textarea id="editor" placeholder="Start typing..."></textarea>
-  
-  
-  <script src="js/script.js"></script>    
+  <script src="js/script.js"></script>
 </body>
 </html>
+```
 
+## 9. Create Folders for css and js with index.html
 
-
-
-
-
-
-
-
-9.	Create Folders for css and js with index.html
-
- 
-
-
-
-
-
-10.	Create Folders for css and js with index.html
-
+## 10. Add CSS in css/style.css
+```css
 body {
     font-family: Arial, sans-serif;
     height: 100vh;
@@ -166,13 +158,10 @@ textarea {
     padding: 10px;
     overflow: auto;
 }
+```
 
-
-
-
-
-11.	Add Script Logic in script.js
-
+## 11. Add Script Logic in js/script.js
+```js
 // Theme toggle logic
 const themeBtn = document.getElementById('themeBtn');
 themeBtn.addEventListener('click', () => {
@@ -200,10 +189,10 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
     const text = document.getElementById('editor').value;
     await ipcRenderer.invoke('save-file', text);
 });
+```
 
-
-
-
-12.	Start Updated App
-
+## 12. Start Updated App
+```sh
 npm start
+```
+// Save file
