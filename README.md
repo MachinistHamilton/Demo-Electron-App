@@ -172,3 +172,33 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
 ```sh
 npm start
 ```
+
+
+## --------- Package App for Delivery ----------
+To package your Electron app with Electron Forge, follow these steps:
+
+
+## 13. Install Electron Forge
+This sets up Forge in your project and adds necessary config and scripts.
+
+```sh
+npx electron-forge import
+```
+
+
+## 14. Build and Package the App
+
+Start your app in developmen
+```sh
+npm start
+```
+
+## 15. To package your app for distribution
+
+This creates distributable files in the out folder (e.g., .exe for Windows).
+```sh
+npm run make
+```
+## 16. Find Your Installer
+After running npm run make, check the out/make directory for your packaged installer.
+
