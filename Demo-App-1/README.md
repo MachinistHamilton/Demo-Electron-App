@@ -6,21 +6,45 @@ Run `npm init -y` in your project folder to create a package.json.
 npm init -y
 
 
-## 2. Install Electron
+## 2. Edit Package Info
+```sh
+{
+  "name": "demo-electron-app",
+  "version": "1.0.0",
+  "author": "Mark Hamilton",
+  "description": "A simple Electron notepad app.",
+  "main": "main.js",
+  // ...rest of your config...
+}
+```
+
+
+## 3. Install Electron
 Run `npm install electron --save-dev` to add Electron as a dev dependency.
 ```sh
 npm install electron --save-dev
 ```
 or
+
 ```sh
 npm i electron -D
 ```
 
-## 3. Create main files
+
+## 4. Install Electron-Forge-CLI
+This ensures Forge works reliably and avoids missing or deprecated dependencies.
+```sh
+npm install --save-dev @electron-forge/cli
+```
+
+
+
+
+## 5. Create main files
 Create a `main.js` file (main process).
 Create an `index.html` file (renderer process).
 
-## 4. Update package.json
+## 6. Update package.json
 Add start electron to script in the `package.json` file:
 ```json
 {
@@ -34,7 +58,7 @@ Add start electron to script in the `package.json` file:
 }
 ```
 
-## 5. Write the Electron code to launch a window in main.js
+## 7. Write the Electron code to launch a window in main.js
 In the `main.js` file write the following code to launch a window.
 Every Electron App only has 1 main process running to manage the life cycle.
 ```js
@@ -55,7 +79,7 @@ function createWindow() {
 app.whenReady().then(createWindow);
 ```
 
-## 6. Create Simple index.html code
+## 8. Create Simple index.html code
 ```html
 <!DOCTYPE html>
 <html>
@@ -69,12 +93,12 @@ app.whenReady().then(createWindow);
 </html>
 ```
 
-## 7. Start App
+## 9. Start App
 ```sh
 npm start
 ```
 
-## 8. Create HTML Layout
+## 10. Create HTML Layout
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -96,9 +120,9 @@ npm start
 </html>
 ```
 
-## 9. Create Folders for css and js with index.html
+## 11. Create Folders for css and js with index.html
 
-## 10. Add CSS in css/style.css
+## 12. Add CSS in css/style.css
 ```css
 body {
     font-family: Arial, sans-serif;
@@ -137,7 +161,7 @@ textarea {
 }
 ```
 
-## 11. Add Script Logic in js/script.js
+## 13. Add Script Logic in js/script.js
 ```js
 // Theme toggle logic
 const themeBtn = document.getElementById('themeBtn');
@@ -168,7 +192,7 @@ document.getElementById('saveBtn').addEventListener('click', async () => {
 });
 ```
 
-## 12. Start Updated App
+## 14. Start Updated App
 ```sh
 npm start
 ```
@@ -178,27 +202,39 @@ npm start
 To package your Electron app with Electron Forge, follow these steps:
 
 
-## 13. Install Electron Forge
+## 15. Install Electron Forge
 This sets up Forge in your project and adds necessary config and scripts.
 
 ```sh
 npx electron-forge import
 ```
+Questions: 
+? WARNING: We will now attempt to import: "C:\school\Semester 4\Javascript Frameworks\Repos\Demo-Electron-App\Demo-Electron-App\Demo-App-1".  This will involve modifying some files,
+ are you sure you want to continue?  -> Yes
 
+? Initialize GitRepo - you can if you havent already.
 
-## 14. Build and Package the App
+? Do you want us to change the "main" attribute of your package.json?  If you are currently using babel and pointing to a "build" directory say yes.  -> No
+
+? Do you want us to update the "start" script to instead call the electron-forge task "electron-forge start"  -> Yes
+
+? Do you want us to update the "package" script to instead call the electron-forge task "electron-forge package"  -> Yes
+
+? Do you want us to update the "make" script to instead call the electron-forge task "electron-forge make" -> Yes
+
+## 16. Build and Package the App
 
 Start your app in developmen
 ```sh
 npm start
 ```
 
-## 15. To package your app for distribution
+## 17 To package your app for distribution
 
 This creates distributable files in the out folder (e.g., .exe for Windows).
 ```sh
 npm run make
 ```
-## 16. Find Your Installer
+## 18. Find Your Installer
 After running npm run make, check the out/make directory for your packaged installer.
 
