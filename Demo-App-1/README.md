@@ -93,9 +93,10 @@ app.whenReady().then(createWindow);
 </html>
 ```
 
-## 9. Start App
+## 9. Test Run App, Then stop
 ```sh
 npm start
+crtl + c 
 ```
 
 ## 10. Create HTML Layout
